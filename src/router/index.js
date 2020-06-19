@@ -5,12 +5,11 @@ import Home from "@/views/Dashboard.vue";
 Vue.use(VueRouter);
 
 export default new VueRouter({
-  // mode: "history",
+  mode: "history",
   base: process.env.BASE_URL,
   routes: [
     {
-      path: "/dashboard",
-      alias: "/",
+      path: "/",
       name: "Dashboard",
       component: Home,
     },
