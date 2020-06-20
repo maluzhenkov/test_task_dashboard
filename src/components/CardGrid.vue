@@ -9,7 +9,14 @@
       @start="dragging = true"
       @end="dragging = false"
     >
-      <v-col v-for="item in value" :key="item.id" cols="12" sm="6" md="3">
+      <v-col
+        v-for="item in value"
+        :key="item.id"
+        :class="{'draggable': isDraggable}"
+        cols="12"
+        sm="6"
+        md="3"
+      >
         <v-hover v-slot:default="{ hover }">
           <v-card
             class="d-flex flex-column fill-height"
@@ -86,7 +93,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style >
 .card__description {
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -96,6 +103,20 @@ export default {
 }
 .opacity {
   opacity: 0;
+}
+[draggable="true"] {
+  user-select: none;
+}
+.draggable {
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+.draggable:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
 }
 .dragging {
   opacity: 0.5;
